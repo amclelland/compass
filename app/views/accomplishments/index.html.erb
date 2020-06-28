@@ -4,6 +4,8 @@
   <p>
     <%= accomplishment.content %>
   </p>
+  <%= link_to "DELETE", accomplishment_path(accomplishment), method: :delete %>
+  <%= link_to "EDIT", edit_accomplishment_path(accomplishment) %>
 <% end %>
 
 <%= simple_form_for Accomplishment.new do |f| %>
