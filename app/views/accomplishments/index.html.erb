@@ -1,0 +1,12 @@
+<h1>Accomplishments</h1>
+
+<% @accomplishments.each do |accomplishment| %>
+  <p>
+    <%= accomplishment.content %>
+  </p>
+<% end %>
+
+<%= simple_form_for Accomplishment.new do |f| %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
