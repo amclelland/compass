@@ -1,0 +1,14 @@
+<h1>1:1 Meeting Notes</h1>
+
+<% @days.each do |days, meetings| %>
+  <h5><%= days %> 1:1 Meeing</h2>
+  <% meetings.each do |meeting| %>
+    <p>
+      <%= meeting.content %>
+    </p>
+    <%= link_to "DELETE", meeting_path(meeting), method: :delete %>
+    <%= link_to "EDIT", edit_meeting_path(meeting) %>
+  <% end %>
+<% end %>
+
+

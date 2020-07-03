@@ -8,4 +8,5 @@ class User < ApplicationRecord
   # has_many :reports, class_name: 'User'
 
   has_many :accomplishments
+  has_many :meetings
 end
