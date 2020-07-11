@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   has_many :accomplishments
   has_many :meetings
+  has_many :goals
+  has_many :goal_checkins, through: :goals
+
+
 end

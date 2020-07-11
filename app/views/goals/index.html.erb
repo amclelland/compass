@@ -1,0 +1,20 @@
+<h1>Goals</h1>
+<hr />
+
+<% @goals.each do |goal| %>
+  <p>
+    <strong><%= goal.content %></strong>
+    <p>
+      Percentage Completed:
+      <%= goal.progress %>%
+    </p>
+  </p>
+  <%= link_to "DELETE", goal_path(goal), method: :delete %>
+  <%= link_to "EDIT", edit_goal_path(goal) %>
+  <%= link_to "SHOW", goal_path(goal) %>
+  <%= link_to "Check In", new_goal_checkin_path(goal) %>
+
+  <hr />
+<% end %>
+
+<%= render "form", goal: Goal.new %>

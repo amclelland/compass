@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_194100) do
+ActiveRecord::Schema.define(version: 2020_07_11_200743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(version: 2020_07_03_194100) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_accomplishments_on_user_id"
+  end
+
+  create_table "goal_checkins", force: :cascade do |t|
+    t.text "content"
+    t.integer "progress"
+    t.bigint "goal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_goal_checkins_on_goal_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "meetings", force: :cascade do |t|

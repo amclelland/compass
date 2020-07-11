@@ -1,0 +1,15 @@
+<h1>New Goal Checkin</h1>
+<em><%= @goal.content %></em>
+
+<% if @last_checkin.present? %>
+  <p>Last Checkin:<p>
+  <%= render 'card', checkin: @last_checkin %>
+<% end %>
+<hr />
+
+<%= simple_form_for Goal::Checkin.new do |f| %>
+  <%= f.input :content %>
+  <%= f.input :progress %>
+
+  <%= f.submit %>
+<% end %>

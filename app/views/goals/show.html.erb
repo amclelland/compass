@@ -1,0 +1,13 @@
+<h1>Goal</h1>
+<em><%= @goal.content %></em>
+<br />
+<em><%= @goal.progress %>%</em>
+<br />
+<%= link_to "Check In", new_goal_checkin_path(@goal) %>
+
+<hr />
+<% @goal.checkins.each do |checkin| %>
+  <%= render 'goals/checkins/card', checkin: checkin %>
+  <%= link_to 'DELETE', goal_checkin_path(checkin), method: :delete %>
+  <hr />
+<% end %>
